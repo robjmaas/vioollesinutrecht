@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vioolles in Utrecht - Willemijn Zwikstra</title>
+		<link rel="icon" 
+			type="image/png" 
+			href="wz_favicon.png">
+	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+	<link href="https://db.onlinewebfonts.com/c/6dd2f2510b4a00a5461b2455928209c2?family=Brandon+Grot+W01+Light" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@100:0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+	<style>
+		@font-face {
+			font-family: "Brandon Grot W01 Light";
+			src: url("https://db.onlinewebfonts.com/t/6dd2f2510b4a00a5461b2455928209c2.eot");
+			src: url("https://db.onlinewebfonts.com/t/6dd2f2510b4a00a5461b2455928209c2.eot?#iefix")format("embedded-opentype"),
+			url("https://db.onlinewebfonts.com/t/6dd2f2510b4a00a5461b2455928209c2.woff2")format("woff2"),
+			url("https://db.onlinewebfonts.com/t/6dd2f2510b4a00a5461b2455928209c2.woff")format("woff"),
+			url("https://db.onlinewebfonts.com/t/6dd2f2510b4a00a5461b2455928209c2.ttf")format("truetype"),
+			url("https://db.onlinewebfonts.com/t/6dd2f2510b4a00a5461b2455928209c2.svg#Brandon Grot W01 Light")format("svg");
+		}
+		a {
+			color: rgb(21, 31, 99);
+		}
+		body {
+			font-family: "Brandon Grot W01 Light";
+			margin:0px auto;
+			font-size:16px;
+			width:100%;
+			overflow: auto;
+			padding-bottom:300px;
+			font-weight: 100;
+		}
+		#top-bar {
+			background: none 0% 0% / auto repeat scroll padding-box border-box rgb(232, 227, 248);
+			outline: rgb(0, 0, 0) none 0px;
+			vertical-align: baseline;
+			height: 32px;
+			line-height: 32px;
+			text-align: center;
+			position: fixed;
+			top: 0px;
+			width: 100%;
+			transition: all;
+			font-size: 1em;
+		}
+		#nav-wrapper {
+			width: 100%;
+			
+			
+		}
+		#nav-l {
+			background: none;
+
+			height: 144px;
+			color: rgb(21, 31, 99);
+			display: flex;
+			align-items: center;
+		
+			width:30%;
+			padding-left:40px;
+			transition: all;
+			line-height: 124px;
+			font-size:1.2em;
+			z-index:9999;
+			float:left;
+		
+		}
+		#nav-r {
+			display: flex;
+			align-items: center;
+			float:right;
+			height:144px;
+			z-index:9999;
+			width:64%;
+		
+		
+			
+		}
+		h1 {
+			background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);
+			outline: rgb(21, 31, 99) none 0px;
+			vertical-align: baseline;
+			letter-spacing: 0.06em;
+			color: rgb(21, 31, 99);
+			font-size:4em;
+			font-family: "Caudex", serif;
+			font-weight: 400;
+			text-size-adjust: 100%;
+			direction: ltr;
+			text-align: center;
+		
+		}
+		h2 {
+			background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);
+			outline: rgb(21, 31, 99) none 0px;
+			vertical-align: baseline;
+			letter-spacing: 0.06em;
+			color: rgb(21, 31, 99);
+			font-size:1.8em;
+			font-family: "Caudex", serif;
+			font-weight: 400;
+			text-size-adjust: 100%;
+			direction: ltr;
+			text-align: center;
+		}
+		#text-1 {
+			width:100%;
+			display: flex;
+			justify-content: center;
+			padding-bottom: 80px;
+		}
+		#text-1-les {
+			width:100%;
+			display: flex;
+			justify-content: center;
+			padding-bottom: 80px;
+		}
+		#content {
+			width:64%;
+			text-align: left;
+			
+		}
+		p {
+			font-size:1.4em;
+		}
+		strong {
+			font-weight: 700;
+		}
+		#footer {
+			background:rgba(21, 31, 99) none 0px;
+			color:#fff;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			bottom:0px;
+			font-size:1em;
+			position: fixed;
+			height:80px;
+			line-height: 80px;
+			width:100%;
+			text-align: center;
+		}
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			font-size:1.2em;
+		
+		
+		}
+		
+		li {
+			float: left;
+		}
+		
+		li a {
+			display: block;
+			color: rgb(21, 31, 99);
+			text-align: center;
+			padding: 16px;
+			text-decoration: none;
+		}
+		
+		li a:hover {
+			text-decoration: underline;
+		}
+		#referenties {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			margin: auto;
+			overflow: auto;
+			box-sizing: border-box;
+			margin-bottom: 80px;
+			
+		}
+		/* Ensures both columns have the same height */
+		#referenties {
+			align-items: stretch; /* Makes child elements' heights match each other */
+		}
+		#ref-l, #ref-r {
+			width: 50%;
+			display: flex;
+			flex-direction: column; /* Allows children to stack vertically */
+		}
+		#ref-l {
+			
+			background: #e8e2f8;
+			font-size:.8em;
+			min-height:600px;
+			box-sizing: border-box;
+			border:32px solid transparent;
+			border-bottom:64px solid transparent;
+			float:left;
+	
+			
+			
+		}
+		#inner {
+			max-width:720px;		}
+		#ref-r {
+			background: #000;
+			
+			background-image:url('https://images.unsplash.com/photo-1588260692987-01360da8185b?q=80&w=2306&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+			background-size:cover;
+			background-position: center center;
+		
+			
+			float:left;
+		}
+		hr {
+			border-top: 1px solid rgb(21, 31, 99);
+			margin-top:24px;
+			margin-bottom:24px;
+			opacity: 0.5;
+	
+		}
+		#lessen-wrapper {
+			width: 100%;
+			height: 100%;
+		
+			display: flex;
+			margin: auto;
+			overflow: auto;
+			box-sizing: border-box;
+			margin-bottom:40px;
+		}
+		#lessen-inner {
+			padding-top:40px;
+			padding-bottom:40px;
+			width:64%;
+			display: flex;
+			margin: auto;
+			overflow: auto;
+			box-sizing: border-box;
+		
+		}
+		#lessen {
+		
+			
+			margin: auto;
+			overflow: auto;
+			box-sizing: border-box;
+			border:40px solid transparent;
+		}
+		#les-1 {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			margin-bottom:16px;
+		
+		}
+		#les-1-1 {
+			font-size: 1.4em;
+		
+		}
+		#les-1-2 {
+			font-size: 1.2em;
+			
+		}
+		
+		i {
+			font-size: 0.8em;
+			font-style: normal;
+		}
+		#contact-wrapper {
+			width:100%;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		a {
+			color: rgb(21, 31, 99);
+		}
+		#contact {
+			font-family: "Brandon Grot W01 Light";
+			background: rgb(21, 31, 99);
+			text-align: center;
+			color:#fff;
+			cursor:pointer;
+			width:auto;
+			margin-top:80px;
+		
+			display: flex;
+			font-size:1.6em;
+			font-weight: 100;
+			align-items: center;
+			justify-content: center;
+			box-sizing: border-box;
+			border-left:60px solid transparent;
+			border-right:60px solid transparent;
+			border-top:12px solid transparent;
+			border-bottom:12px solid transparent;
+			border-radius: 32px;
+		}
+		#contact:hover {
+			opacity: 0.5;
+		}
+		b {
+			font-weight: 700;
+			color:rgb(21, 31, 99);
+		}
+		 @media only screen and (max-width: 768px) {
+			#nav-wrapper {
+				width: 100%;
+				flex-direction: column;
+				display: flex;
+				
+			}
+			#nav-l {
+				background: none;
+				margin-top: 16px;
+				height: 144px;
+				color: rgb(21, 31, 99);
+				display: flex;
+				align-items: center;
+				position: absolute;
+				width:100%;
+				padding-left:0px!important;
+				transition: all;
+				text-align: center;
+				justify-content: center;
+				line-height: 144px;
+				font-size:1.2em;
+				z-index:9999;
+				float:left;
+				
+			}
+			#nav-r {
+				margin-top: 88px;
+				display: flex;
+				align-items: center;
+				text-align: center;
+				justify-content: center;
+				float:right;
+				position: absolute;
+				height:144px;
+				z-index:9999;
+				width:100%;
+				
+				
+				
+			}
+			#text-1 {
+				margin-top: 196px;
+			}
+			
+		}
+	</style>
+	</head>
+	<body>
+		<div id="top-bar">Vanaf heden beschikbaar voor lessen!</div>
+		<div id="nav-wrapper">
+			<div id="nav-l"><svg
+				preserveAspectRatio="xMidYMid meet"
+				data-bbox="81.8 50.001 36.401 100"
+				viewBox="81.8 50.001 36.401 100"
+				height="40"
+				width="40"
+				xmlns="http://www.w3.org/2000/svg"
+				data-type="color"
+				role="img"
+				aria-label="Homepage"
+				class="svg-0"
+			>
+				<defs class="defs-0">
+					<style class="style-0">
+						#comp-kd2v2o0j svg [data-color="1"] {fill: #151F63;}
+					</style>
+				</defs>
+				<g class="g-0">
+					<path
+						d="M103.496 97.612c3.476-.254 6.603.332 9.344 2.404 3.173 2.4 4.714 5.753 5.206 9.563.722 5.589-1.067 10.291-5.624 13.713-1.177.884-2.618 1.478-4.018 1.98-.993.356-1.251.791-1.113 1.805.385 2.826.699 5.662.974 8.501.25 2.578.084 5.139-.648 7.639-.963 3.287-3.142 5.364-6.41 6.249-4.262 1.154-8.188.538-11.285-2.809-2.286-2.471-2.864-5.491-1.646-8.664 1.149-2.993 4.519-4.249 7.396-2.927 2.846 1.308 3.984 4.786 2.513 7.669-.947 1.856-2.456 2.855-4.525 3.049-.338.032-.659.241-.987.369.152.394.193.965.479 1.147.775.491 1.62 1.029 2.498 1.171 3.359.545 6.521.05 8.95-2.591 1.378-1.498 1.832-3.451 2.117-5.437.471-3.28-.117-6.503-.466-9.74-.158-1.459-.354-2.915-.532-4.366-1.461.144-2.851.342-4.246.406-4.678.214-9.086-.751-12.74-3.793-5.084-4.232-7.316-9.809-6.88-16.409.376-5.697 2.883-10.465 6.721-14.55a358.002 358.002 0 0110.364-10.62c.946-.926 1.036-1.794.963-2.97-.23-3.687-.648-7.4-.431-11.069.337-5.689 2.382-10.866 6.006-15.323.536-.659 1.299-1.19 2.054-1.601 1.614-.879 2.909-.325 3.964 1.57 1.74 3.126 2.505 6.542 2.868 10.054.777 7.502-1.217 14.253-5.86 20.138-1.56 1.977-3.535 3.63-5.37 5.379-.555.529-.745.996-.633 1.783.391 2.726.668 5.469.997 8.28zm-2.415-7.889c-.187.117-.301.164-.383.243-2.93 2.824-5.917 5.593-8.765 8.498-2.023 2.064-3.338 4.611-4.131 7.397-1.032 3.627-1.145 7.225.495 10.741 3.155 6.767 10.641 9.359 17.066 8.025l-2.412-19.12c-2.521.309-4.595 1.356-5.729 3.48-2.352 4.405-1.851 8.461 2.208 11.83-1.788-.081-3.025-1.005-4.108-2.149-4.42-4.67-3.789-13.327 1.24-17.717 1.605-1.401 3.44-2.347 5.493-2.999l-.974-8.229zm.363-10.487c1.464-1.391 2.769-2.557 3.988-3.806 2.704-2.772 5.139-5.746 6.493-9.45.634-1.733.922-3.523.455-5.346-.405-1.579-1.521-2.285-3.095-1.959-2.049.425-3.383 1.881-4.447 3.513-3.342 5.127-3.957 10.837-3.394 17.048zm5.485 44.923c4.483-.963 7.613-6.261 6.8-11.379-.814-5.126-4.875-7.701-9.117-7.423l2.317 18.802z"
+						fill="#151F63"
+						data-color="1"
+						class="path-0"
+					></path>
+				</g>
+			</svg>
+<strong>Vioolles in Utrecht</strong></div>
+			<div id="nav-r">
+				<ul>
+				
+					<li><a href="index.html"><u>Home</u></a></li>
+					<li><a href="#de-les-anchor">De les</a></li>
+					<li><a href="#lessen-wrapper">Tarieven</a></li>
+					<li><a href="#contact-wrapper">Boek een les</a></li>
+					<li><a href="violinistinbalance.html">Violinist in Balance</a></li>
+					<li><a href="over.html">Over</a></li>
+					<li><a href="referenties.html">Referenties</a></li>
+					<li><a href="links.html">Links</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="text-1">
+			<div id="content">
+				<h1 style="	margin-bottom:-24px;">Vioolles in Utrecht</h1>
+				<h2>Willemijn Zwikstra</h2>
+				<p>Welkom op de website van viooldocent Willemijn Zwikstra. Willemijn is een enthousiaste, gedreven en ervaren <b>viooldocent</b>. Ze geeft les aan <b>jongeren</b> met een meer <b>gevorderd niveau</b> en aan <b>volwassenen</b>. Haar specialiteiten zijn het werken met leerlingen met <b>blessures en klachten</b> bij het vioolspelen, het bijspijkeren en uitdiepen van de <b>viooltechniek</b> en het begeleiden van leerlingen die het vioolspelen opnieuw willen oppakken. Willemijn is de enige viooldocent in Nederland die deelnam aan het onderzoek <b><a href="violinistinbalance.html" style="text-decoration: none;">Violinist in Balance</a></b>. Wil je een proefles volgen, neem dan <a href="mailto:willemijn@wzkunstencultuur.nl">contact</a> op.</p>
+			</div>
+		</div>
+		<div id="referenties">
+			<div id="ref-r">
+				xx
+			</div>
+			<div id="ref-l">
+			<h1 style="font-size:2.4em;text-align: left;">Wat leerlingen zeggen</h1>
+			<div id="inner">
+					
+				<p>“Willemijn is een hele prettige lerares. Ik vind het fijn dat we samen de lesinhoud bepalen. Er is niet alleen veel aandacht voor het verbeteren van de techniek, maar ook het lekker spelen staat centraal. Willemijn geeft hele concrete tips en oefeningen om de techniek te verbeteren en dat hoor je direct terug in het spelen!”</p> – Jennifer (27), volgde in haar studententijd vijf jaar lessen bij Willemijn
+					
+				<p style="margin-top:32px">“Met haar professionele, constructieve en aanmoedigende houding heeft Willemijn mij geleerd dat muziek maken meer is dan een stuk spelen op een technisch correcte manier: muziek maken gaat ook om het overbrengen van een boodschap en een verhaal maken van het stuk. En vooral niet vergeten plezier te hebben in de muziek. Het resultaat is dat zelfs de meest alledaagse oefeningen met plezier omgetoverd worden tot muziek.”</p> – Sjöfn (40), had zes jaar les van Willemijn
+				
+				
+				<p style="margin-top:32px">“Ik ervaar de vioollessen bij Willemijn als inspirerend. De lessen zijn echt gericht op vioolspelen met plezier en het ontdekken van muzikale mogelijkheden. Ik vind het erg leuk dat Willemijn openstaat voor verschillende interpretaties van de muziek. Willemijn heeft ook veel kennis over de techniek van het vioolspelen en geeft hiervoor leerzame en leuke oefeningen mee.”</p> – Alice (27), studeerde enkele jaren in de Jong Talent Klas en de vakopleiding van het conservatorium, moest haar muziekstudie afbreken vanwege een hardnekkige blessure, en was daarna leerling van Willemijn
+			</div>
+				<p><a href="referenties.html">Lees alle referenties</a></p>
+			</div>
+			
+		</div>
+	<div id="de-les-anchor"></div>
+		<div id="text-1-les">
+			<div id="content">
+				<h1 >De les</h1>
+			
+				<p>De lessen van Willemijn zijn individueel en worden per keer afgesproken of vinden plaats op een vast tijdstip. Lessen kunnen wekelijks, eens in de twee weken of eens in de drie weken worden gevolgd. Ook kan een duoles worden afgesproken als de leerling bijvoorbeeld Bach of Vivaldi dubbelconcerten studeert of voor een gelegenheid met iemand wil samenspelen. Verder is het mogelijk één of enkele losse lessen te volgen als voorbereiding op een auditie. Willemijn leidt ook op voor het toelatingsexamen conservatorium en geeft lessen voor de studie aan de Schumann Akademie. De leslocatie bevindt zich aan de rand van Utrecht-Overvecht, aan de kant van het tuincentrum en Fort Blauwkapel.
+				</p><p>
+					In de lessen staan muziekmaken en plezier in het vioolspelen centraal. In iedere les gaat het om het vertellen van een muzikaal verhaal, of dat nu in een etude of in een voordrachtsstuk is. Voor het muziekmaken zijn de manier van bewegen en het gemak van de techniek doorslaggevend. Daarom is er in de lessen ook veel aandacht voor deze twee aspecten. Willemijn zoekt samen met de leerling naar een bewegingspatroon dat bij hem of haar en bij de viool past, om tot een mooie vioolklank te komen. Iedere leerling krijgt elke les enkele korte oefeningen om aan specifieke technieken te werken, zoals linkerhandtechniek, streektechniek, positiewisselen en vibrato. Voordrachtsstukken worden geanalyseerd op structuur en muzikale lijn. Ook worden ze passend bij het niveau van de leerling gekozen. De leerling heeft de stukken dan in korte tijd onder de knie en kan zich daardoor helemaal richten op de muziek; op het verhaal dat hij of zij met de muziek wil vertellen.</p>
+			</div>
+		</div>
+		<div id="lessen-wrapper"  style="background: #151f62; color:#e7e2f8;">
+			<div id="lessen-inner">
+				<h1 style="font-size:2.4em;text-align: left;color:#e7e2f8;">Tarieven</h1>
+				<div id="lessen">
+					
+					<div id="les-1">
+						<div id="les-1-1">
+							Les van een uur
+						</div>
+						<div id="les-1-2">
+							<i>€ 60,00</i>
+						</div>
+					</div>
+					<div id="les-1">
+						<div id="les-1-1">
+							Les van driekwartier
+						</div>
+						<div id="les-1-2">
+							<i>€ 45,00</i>
+						</div>
+					</div>
+					<div id="les-1">
+						<div id="les-1-1">
+							Proefles <i>45 minuten</i>
+						</div>
+						<div id="les-1-2">
+							<i>€ 15,00</i>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<div id="contact-wrapper">
+			</a><div id="contact">
+				<a href="mailto:willemijn@wzkunstencultuur.nl" style="color:white;text-decoration: none;">Boek een les</a>
+			</div>
+		</div>
+		<div id="footer">
+			<svg
+				preserveAspectRatio="xMidYMid meet"
+				data-bbox="81.8 50.001 36.401 100"
+				viewBox="81.8 50.001 36.401 100"
+				height="32"
+				width="32"
+				xmlns="http://www.w3.org/2000/svg"
+				data-type="color"
+				role="img"
+				aria-label="Homepage"
+				class="svg-0"
+			>
+				<defs class="defs-0">
+					<style class="style-0">
+						#comp-kd2v2o0j svg [data-color="1"] {fill: #fff;}
+					</style>
+				</defs>
+				<g class="g-0">
+					<path
+						d="M103.496 97.612c3.476-.254 6.603.332 9.344 2.404 3.173 2.4 4.714 5.753 5.206 9.563.722 5.589-1.067 10.291-5.624 13.713-1.177.884-2.618 1.478-4.018 1.98-.993.356-1.251.791-1.113 1.805.385 2.826.699 5.662.974 8.501.25 2.578.084 5.139-.648 7.639-.963 3.287-3.142 5.364-6.41 6.249-4.262 1.154-8.188.538-11.285-2.809-2.286-2.471-2.864-5.491-1.646-8.664 1.149-2.993 4.519-4.249 7.396-2.927 2.846 1.308 3.984 4.786 2.513 7.669-.947 1.856-2.456 2.855-4.525 3.049-.338.032-.659.241-.987.369.152.394.193.965.479 1.147.775.491 1.62 1.029 2.498 1.171 3.359.545 6.521.05 8.95-2.591 1.378-1.498 1.832-3.451 2.117-5.437.471-3.28-.117-6.503-.466-9.74-.158-1.459-.354-2.915-.532-4.366-1.461.144-2.851.342-4.246.406-4.678.214-9.086-.751-12.74-3.793-5.084-4.232-7.316-9.809-6.88-16.409.376-5.697 2.883-10.465 6.721-14.55a358.002 358.002 0 0110.364-10.62c.946-.926 1.036-1.794.963-2.97-.23-3.687-.648-7.4-.431-11.069.337-5.689 2.382-10.866 6.006-15.323.536-.659 1.299-1.19 2.054-1.601 1.614-.879 2.909-.325 3.964 1.57 1.74 3.126 2.505 6.542 2.868 10.054.777 7.502-1.217 14.253-5.86 20.138-1.56 1.977-3.535 3.63-5.37 5.379-.555.529-.745.996-.633 1.783.391 2.726.668 5.469.997 8.28zm-2.415-7.889c-.187.117-.301.164-.383.243-2.93 2.824-5.917 5.593-8.765 8.498-2.023 2.064-3.338 4.611-4.131 7.397-1.032 3.627-1.145 7.225.495 10.741 3.155 6.767 10.641 9.359 17.066 8.025l-2.412-19.12c-2.521.309-4.595 1.356-5.729 3.48-2.352 4.405-1.851 8.461 2.208 11.83-1.788-.081-3.025-1.005-4.108-2.149-4.42-4.67-3.789-13.327 1.24-17.717 1.605-1.401 3.44-2.347 5.493-2.999l-.974-8.229zm.363-10.487c1.464-1.391 2.769-2.557 3.988-3.806 2.704-2.772 5.139-5.746 6.493-9.45.634-1.733.922-3.523.455-5.346-.405-1.579-1.521-2.285-3.095-1.959-2.049.425-3.383 1.881-4.447 3.513-3.342 5.127-3.957 10.837-3.394 17.048zm5.485 44.923c4.483-.963 7.613-6.261 6.8-11.379-.814-5.126-4.875-7.701-9.117-7.423l2.317 18.802z"
+						fill="#fff"
+						data-color="1"
+						class="path-0"
+					></path>
+				</g>
+			</svg> Willemijn Zwikstra © 2025
+		</div>
+		
+	</body>
+
+	<script>
+		
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+				
+				document.querySelector(this.getAttribute('href')).scrollIntoView({
+					behavior: 'smooth'
+				});
+			})
+		})
+	</script>
+</html>
