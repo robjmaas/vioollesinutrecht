@@ -435,16 +435,24 @@
 			</svg> Willemijn Zwikstra © 2025
 		</div>
 	</body>
+
 	<script>
-		
-		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-			anchor.addEventListener('click', function (e) {
-				e.preventDefault();
+		// Smooth scroll and prevent back button clutter
+		document.querySelectorAll('.nav-link').forEach(link => {
+			link.addEventListener('click', (event) => {
+				event.preventDefault();
+				const targetId = event.target.getAttribute('href').substring(1);
+				const targetElement = document.getElementById(targetId);
 				
-				document.querySelector(this.getAttribute('href')).scrollIntoView({
+				// Scroll to the target section
+				window.scrollTo({
+					top: targetElement.offsetTop,
 					behavior: 'smooth'
 				});
-			})
-		})
+				
+				// Update URL without adding to history
+				history.replaceState(null, '', `#${targetId}`);
+			});
+		});
 	</script>
 </html>

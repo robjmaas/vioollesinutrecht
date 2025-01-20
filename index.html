@@ -274,6 +274,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			flex-direction: column;
 		}
 		a {
 			color: rgb(21, 31, 99);
@@ -402,7 +403,7 @@
 			<div id="content">
 				<h1 style="	margin-bottom:-24px;">Vioolles in Utrecht</h1>
 				<h2>Willemijn Zwikstra</h2>
-				<p>Welkom op de website van viooldocent Willemijn Zwikstra. Willemijn is een enthousiaste, gedreven en ervaren <b>viooldocent</b>. Ze geeft les aan <b>jongeren</b> met een meer <b>gevorderd niveau</b> en aan <b>volwassenen</b>. Haar specialiteiten zijn het werken met leerlingen met <b>blessures en klachten</b> bij het vioolspelen, het bijspijkeren en uitdiepen van de <b>viooltechniek</b> en het begeleiden van leerlingen die het vioolspelen opnieuw willen oppakken. Willemijn is de enige viooldocent in Nederland die deelnam aan het onderzoek <b><a href="violinistinbalance.html" style="text-decoration: none;">Violinist in Balance</a></b>. Wil je een proefles volgen, neem dan <a href="mailto:willemijn@wzkunstencultuur.nl">contact</a> op.</p>
+				<p>Welkom op de website van viooldocent Willemijn Zwikstra. Willemijn is een enthousiaste, gedreven en ervaren <b>viooldocent</b>. Ze geeft les aan <b>jongeren</b> met een meer <b>gevorderd niveau</b> en aan <b>volwassenen</b>. Haar specialiteiten zijn het werken met leerlingen met <b>blessures en klachten</b> bij het vioolspelen, het bijspijkeren en uitdiepen van de <b>viooltechniek</b> en het begeleiden van leerlingen die het vioolspelen opnieuw willen oppakken. Willemijn is de enige viooldocent in Nederland die deelnam aan het onderzoek <b><a href="violinistinbalance.html" style="text-decoration: none;">Violinist in Balance</a></b>. Wil je een proefles volgen, neem dan <a href="mailto:willemijn@wzkunstencultuur.nl">contact</a> op via <b>willemijn@wzkunstencultuur.com</b>.</p>
 			</div>
 		</div>
 		<div id="referenties">
@@ -444,7 +445,7 @@
 							Les van een uur
 						</div>
 						<div id="les-1-2">
-							<i>€ 60,00</i>
+							<i>€ 60,00 (tot 21 jaar €50,00)</i>
 						</div>
 					</div>
 					<div id="les-1">
@@ -452,7 +453,7 @@
 							Les van driekwartier
 						</div>
 						<div id="les-1-2">
-							<i>€ 45,00</i>
+							<i>€ 45,00 (tot 21 jaar €37,00)</i>
 						</div>
 					</div>
 					<div id="les-1">
@@ -468,9 +469,11 @@
 			</div>
 		</div>
 		<div id="contact-wrapper">
-			</a><div id="contact">
-				<a href="mailto:willemijn@wzkunstencultuur.nl" style="color:white;text-decoration: none;">Boek een les</a>
+			<div id="contact">
+				<a href="mailto:willemijn@wzkunstencultuur.com" style="color:white;text-decoration: none;">Boek een les</a>
 			</div>
+			
+			<p>willemijn@wzkunstencultuur.com</p>
 		</div>
 		<div id="footer">
 			<svg
@@ -504,7 +507,6 @@
 	</body>
 
 	<script>
-		
 		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 			anchor.addEventListener('click', function (e) {
 				e.preventDefault();
@@ -514,5 +516,24 @@
 				});
 			})
 		})
+	</script>
+	<script>
+		// Smooth scroll and prevent back button clutter
+		document.querySelectorAll('.nav-link').forEach(link => {
+			link.addEventListener('click', (event) => {
+				event.preventDefault();
+				const targetId = event.target.getAttribute('href').substring(1);
+				const targetElement = document.getElementById(targetId);
+				
+				// Scroll to the target section
+				window.scrollTo({
+					top: targetElement.offsetTop,
+					behavior: 'smooth'
+				});
+				
+				// Update URL without adding to history
+				history.replaceState(null, '', `#${targetId}`);
+			});
+		});
 	</script>
 </html>
