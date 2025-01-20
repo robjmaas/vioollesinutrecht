@@ -31,7 +31,7 @@
 			font-size:16px;
 			width:100%;
 			overflow: auto;
-			padding-bottom:300px;
+			padding-bottom:200px;
 			font-weight: 100;
 		}
 		#top-bar {
@@ -307,40 +307,66 @@
 			font-weight: 700;
 			color:rgb(21, 31, 99);
 		}
-		 @media only screen and (max-width: 768px) {
+		#up {
+			font-family: "Brandon Grot W01 Light";
+			background: rgb(21, 31, 99);
+			text-align: center;
+			color:#fff;
+			cursor:pointer;
+			width:auto;
+			bottom:120px;
+			right:80px;
+			position: fixed;
+			z-index:99999;
+			display: flex;
+			font-size:1.6em;
+			font-weight: 100;
+			align-items: center;
+			justify-content: center;
+			box-sizing: border-box;
+			border-left:60px solid transparent;
+			border-right:60px solid transparent;
+			border-top:12px solid transparent;
+			border-bottom:12px solid transparent;
+			border-radius: 32px;
+		}
+		 @media only screen and (max-width: 1024px) {
 			#nav-wrapper {
 				width: 100%;
 				flex-direction: column;
 				display: flex;
+				height:288px;
 				
 			}
 			#nav-l {
 				background: none;
 				margin-top: 16px;
-				height: 144px;
+				height: 124px;
 				color: rgb(21, 31, 99);
 				display: flex;
 				align-items: center;
-				position: absolute;
+				
 				width:100%;
 				padding-left:0px!important;
 				transition: all;
 				text-align: center;
 				justify-content: center;
-				line-height: 144px;
+				line-height: 124px;
 				font-size:1.2em;
 				z-index:9999;
 				float:left;
 				
 			}
+			
 			#nav-r {
-				margin-top: 88px;
+				
 				display: flex;
-				align-items: center;
 				text-align: center;
+				align-items: center;
+				width:100%;
 				justify-content: center;
 				float:right;
-				position: absolute;
+				
 				height:144px;
 				z-index:9999;
 				width:100%;
@@ -349,13 +375,32 @@
 				
 			}
 			#text-1 {
-				margin-top: 196px;
+				margin-top:auto;
+				position: relative;
+			
+			}
+			ul
+			{
+				display:flex;  
+				list-style:none;
+				flex-wrap: wrap;
+				text-align: center;
+				justify-content: center;
+				
+			}
+			li {
+				display: flex;
+				flex-wrap: wrap;
+				white-space: nowrap;
+				text-align: center;
+				justify-content: center;
 			}
 			
 		}
 	</style>
 	</head>
 	<body>
+		<div id="up">↑</div>
 		<div id="top-bar">Vanaf heden beschikbaar voor lessen!</div>
 		<div id="nav-wrapper">
 			<div id="nav-l"><svg
@@ -535,5 +580,27 @@
 				history.replaceState(null, '', `#${targetId}`);
 			});
 		});
+		
+		$('#up').on("click",function(){
+			$(window).scrollTop(0);
+		});
+		
+		$("#up").hide();
+		$(window).scroll(function() {
+			if ($(window).scrollTop() > 300) {
+				$("#up").fadeIn("slow");
+			}
+			else {
+				$("#up").fadeOut("fast");
+			}
+		});
+		$("#footer").hide();
+		window.onscroll = function(ev) {
+			if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+				$("#footer").fadeIn("slow");
+			} else {
+				$("#footer").fadeOut("fast");
+			}
+		};
 	</script>
 </html>

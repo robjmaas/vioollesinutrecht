@@ -149,7 +149,29 @@
 		
 		
 		}
-		
+		#up {
+			font-family: "Brandon Grot W01 Light";
+			background: rgb(21, 31, 99);
+			text-align: center;
+			color:#fff;
+			cursor:pointer;
+			width:auto;
+			bottom:120px;
+			right:80px;
+			position: fixed;
+			z-index:99999;
+			display: flex;
+			font-size:1.6em;
+			font-weight: 100;
+			align-items: center;
+			justify-content: center;
+			box-sizing: border-box;
+			border-left:60px solid transparent;
+			border-right:60px solid transparent;
+			border-top:12px solid transparent;
+			border-bottom:12px solid transparent;
+			border-radius: 32px;
+		}
 		li {
 			float: left;
 		}
@@ -346,6 +368,7 @@
 	</style>
 	</head>
 	<body>
+		<div id="up">↑</div>
 		<div id="top-bar">Vanaf heden beschikbaar voor lessen!</div>
 		<div id="nav-wrapper">
 			<div id="nav-l"><svg
@@ -470,5 +493,26 @@
 				});
 			})
 		})
+		$('#up').on("click",function(){
+			$(window).scrollTop(0);
+		});
+		
+		$("#up").hide();
+		$(window).scroll(function() {
+			if ($(window).scrollTop() > 300) {
+				$("#up").fadeIn("slow");
+			}
+			else {
+				$("#up").fadeOut("fast");
+			}
+		});
+		$("#footer").hide();
+		window.onscroll = function(ev) {
+			if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+				$("#footer").fadeIn("slow");
+			} else {
+				$("#footer").fadeOut("fast");
+			}
+		};
 	</script>
 </html>
