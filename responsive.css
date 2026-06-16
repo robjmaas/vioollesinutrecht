@@ -1,0 +1,161 @@
+/* ==========================================================================
+   responsive.css — layout improvements for desktop & mobile
+   Loaded after the inline <style> in each page so these rules win on ties.
+   ========================================================================== */
+
+/* ---------- Global / desktop ---------- */
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+	/* The original 300px bottom padding was reserved for a fixed footer.
+	   The footer now flows normally, so the gap is no longer needed. */
+	padding-bottom: 0;
+	-webkit-text-size-adjust: 100%;
+}
+
+/* Keep the announcement bar above everything */
+#top-bar {
+	z-index: 10000;
+}
+
+/* Push the navigation clear of the fixed top-bar so the logo isn't clipped */
+#nav-wrapper {
+	padding-top: 32px;
+}
+
+/* Clean, vertically-centred nav that wraps gracefully on narrower desktops */
+#nav-r ul {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-end;
+	height: 144px;
+}
+#nav-r ul li {
+	float: none;
+}
+
+/* Cap line length on wide screens for comfortable reading */
+#content {
+	max-width: 760px;
+}
+
+/* Let the footer sit at the end of the content instead of covering it.
+   A fixed footer overlapped text on long pages and small screens. */
+#footer {
+	position: static;
+	height: auto;
+	min-height: 80px;
+	line-height: 1.4;
+	padding: 24px 16px;
+	gap: 10px;
+}
+
+/* ---------- Tablet / mobile ---------- */
+@media only screen and (max-width: 768px) {
+
+	/* Nav flows in normal document order (no fragile absolute positioning) */
+	#nav-wrapper {
+		flex-direction: column;
+		padding-top: 32px;
+	}
+
+	#nav-l {
+		position: static;
+		width: 100%;
+		height: auto;
+		margin: 0;
+		padding: 18px 0 6px;
+		line-height: 1.3;
+		justify-content: center;
+		text-align: center;
+	}
+
+	#nav-r {
+		position: static;
+		width: 100%;
+		height: auto;
+		margin: 0;
+		float: none;
+	}
+
+	#nav-r ul {
+		flex-wrap: wrap;
+		justify-content: center;
+		height: auto;
+		float: none;
+	}
+	#nav-r ul li a {
+		padding: 9px 12px;
+	}
+
+	/* Drop the original 196px magic-number offset; nav now takes real space */
+	#text-1 {
+		margin-top: 16px;
+	}
+
+	/* Stack the testimonial block: image on top, text below */
+	#referenties {
+		flex-direction: column;
+	}
+	#ref-l,
+	#ref-r {
+		width: 100%;
+	}
+	#ref-r {
+		order: -1;
+		min-height: 220px;
+	}
+	#ref-l {
+		min-height: auto;
+		border-width: 24px;
+	}
+
+	/* Give text columns more room on small screens */
+	#content {
+		width: 88%;
+		max-width: 88%;
+	}
+	#lessen-inner {
+		width: 88%;
+	}
+	#lessen {
+		border-width: 16px;
+	}
+
+	/* Scale down oversized type so headings don't overflow */
+	h1 {
+		font-size: 2.4em;
+	}
+	h2 {
+		font-size: 1.4em;
+	}
+	p {
+		font-size: 1.15em;
+	}
+
+	/* Trim the wide button borders so the CTA fits narrow viewports */
+	#contact {
+		font-size: 1.3em;
+		border-left-width: 28px;
+		border-right-width: 28px;
+		margin-top: 48px;
+	}
+}
+
+/* ---------- Small phones ---------- */
+@media only screen and (max-width: 420px) {
+	h1 {
+		font-size: 2em;
+	}
+	#nav-r ul li a {
+		padding: 8px 9px;
+	}
+	#content {
+		width: 92%;
+		max-width: 92%;
+	}
+}

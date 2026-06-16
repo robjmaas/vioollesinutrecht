@@ -2,12 +2,11 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Vioolles in Utrecht - Willemijn Zwikstra</title>
 		<link rel="icon" 
 			type="image/png" 
 			href="wz_favicon.png">
-		<meta name="keywords" content="vioolles Utrecht, viooldocent Utrecht, vioolleraar Utrecht, vioolles voor volwassenen, vioolles voor gevorderden, viooltechniek verbeteren, blessurepreventie viool, Violinist in Balance, proefles viool Utrecht, vioolles Overvecht, vioolles Fort Blauwkapel, individuele vioollessen, duoles viool, auditievoorbereiding viool, conservatorium toelating viool, Schumann Akademie viool, muzikale interpretatie viool, vioolklank optimalisatie, streektechniek viool, linkerhandtechniek viool">
-		<meta name="description" content="Professionele vioollessen in Utrecht voor beginners en gevorderden. Individuele lessen, duolessen, auditievoorbereiding en techniekverbetering met focus op blessurepreventie en muzikale interpretatie. Proefles mogelijk!"">
 	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 	<link href="https://db.onlinewebfonts.com/c/6dd2f2510b4a00a5461b2455928209c2?family=Brandon+Grot+W01+Light" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,7 +57,7 @@
 			display: flex;
 			align-items: center;
 		
-			width:20%;
+			width:30%;
 			padding-left:40px;
 			transition: all;
 			line-height: 124px;
@@ -73,7 +72,7 @@
 			float:right;
 			height:144px;
 			z-index:9999;
-			width:70%;
+			width:64%;
 		
 		
 			
@@ -211,29 +210,6 @@
 			
 			float:left;
 		}
-		#up {
-			font-family: "Brandon Grot W01 Light";
-			background: rgb(21, 31, 99);
-			text-align: center;
-			color:#fff;
-			cursor:pointer;
-			width:auto;
-			bottom:120px;
-			right:80px;
-			position: fixed;
-			z-index:99999;
-			display: flex;
-			font-size:1.6em;
-			font-weight: 100;
-			align-items: center;
-			justify-content: center;
-			box-sizing: border-box;
-			border-left:60px solid transparent;
-			border-right:60px solid transparent;
-			border-top:12px solid transparent;
-			border-bottom:12px solid transparent;
-			border-radius: 32px;
-		}
 		hr {
 			border-top: 1px solid rgb(21, 31, 99);
 			margin-top:24px;
@@ -323,43 +299,40 @@
 		#contact:hover {
 			opacity: 0.5;
 		}
-		@media only screen and (max-width: 1024px) {
+		 @media only screen and (max-width: 768px) {
 			#nav-wrapper {
 				width: 100%;
 				flex-direction: column;
 				display: flex;
-				height:288px;
 				
 			}
 			#nav-l {
 				background: none;
 				margin-top: 16px;
-				height: 124px;
+				height: 144px;
 				color: rgb(21, 31, 99);
 				display: flex;
 				align-items: center;
-				
+				position: absolute;
 				width:100%;
 				padding-left:0px!important;
 				transition: all;
 				text-align: center;
 				justify-content: center;
-				line-height: 124px;
+				line-height: 144px;
 				font-size:1.2em;
 				z-index:9999;
 				float:left;
 				
 			}
-			
 			#nav-r {
-				
+				margin-top: 88px;
 				display: flex;
-				text-align: center;
 				align-items: center;
-				width:100%;
+				text-align: center;
 				justify-content: center;
 				float:right;
-				
+				position: absolute;
 				height:144px;
 				z-index:9999;
 				width:100%;
@@ -368,34 +341,15 @@
 				
 			}
 			#text-1 {
-				margin-top:auto;
-				position: relative;
-				
+				margin-top: 196px;
 			}
-			ul
-			{
-				display:flex;  
-				list-style:none;
-				flex-wrap: wrap;
-				text-align: center;
-				justify-content: center;
-				
-			}
-			li {
-				display: flex;
-				flex-wrap: wrap;
-				white-space: nowrap;
-				text-align: center;
-				justify-content: center;
-			}
-			
 		}
-
 	</style>
+		<link rel="stylesheet" href="responsive.css">
+
 	</head>
 
 	<body>
-		<div id="up">↑</div>
 		<div id="top-bar">Vanaf heden beschikbaar voor lessen!</div>
 		<div id="nav-wrapper">
 			<div id="nav-l"><svg
@@ -459,7 +413,7 @@
 	
 <!--	<div id="contact-wrapper">-->
 <!--		</a><div id="contact">-->
-<!--			<a href="mailto:willemijn@wzkunstencultuur.nl" style="color:white;text-decoration: none;">Boek een les</a>-->
+<!--			<a href="mailto:wzkunstencultuur@gmail.com" style="color:white;text-decoration: none;">Boek een les</a>-->
 <!--		</div>-->
 <!--	</div>-->
 		<div id="footer">
@@ -488,7 +442,7 @@
 						class="path-0"
 					></path>
 				</g>
-			</svg> Willemijn Zwikstra © 2025
+			</svg> Willemijn Zwikstra © 2026
 		</div>
 	</body>
 	<script>
@@ -502,26 +456,5 @@
 				});
 			})
 		})
-		$('#up').on("click",function(){
-			$(window).scrollTop(0);
-		});
-		
-		$("#up").hide();
-		$(window).scroll(function() {
-			if ($(window).scrollTop() > 300) {
-				$("#up").fadeIn("slow");
-			}
-			else {
-				$("#up").fadeOut("fast");
-			}
-		});
-		$("#footer").hide();
-		window.onscroll = function(ev) {
-			if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-				$("#footer").fadeIn("slow");
-			} else {
-				$("#footer").fadeOut("fast");
-			}
-		};
 	</script>
 </html>
