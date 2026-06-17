@@ -44,14 +44,47 @@ body {
 }
 
 /* Let the footer sit at the end of the content instead of covering it.
-   A fixed footer overlapped text on long pages and small screens. */
+   A fixed footer overlapped text on long pages and small screens.
+   Stacked, generously spaced: back-to-top arrow, logo + name, e-mail. */
 #footer {
 	position: static;
+	flex-direction: column;
 	height: auto;
 	min-height: 80px;
-	line-height: 1.4;
-	padding: 24px 16px;
-	gap: 10px;
+	line-height: 1.5;
+	padding: 56px 16px;
+	gap: 18px;
+	text-align: center;
+}
+/* Readable, clickable e-mail address */
+#footer .footer-mail {
+	color: #fff;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	font-size: 1em;
+	letter-spacing: 0.02em;
+}
+#footer .footer-mail:hover {
+	opacity: 0.7;
+}
+/* Round "back to top" arrow button */
+#footer .to-top {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 46px;
+	height: 46px;
+	margin-bottom: 6px;
+	border: 1px solid rgba(255, 255, 255, 0.55);
+	border-radius: 50%;
+	color: #fff;
+	font-size: 1.5em;
+	line-height: 1;
+	text-decoration: none;
+	transition: background 0.2s ease;
+}
+#footer .to-top:hover {
+	background: rgba(255, 255, 255, 0.15);
 }
 
 /* ---------- Tablet / mobile ---------- */
